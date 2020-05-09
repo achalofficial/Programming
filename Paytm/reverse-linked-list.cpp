@@ -12,16 +12,6 @@ void showlist(list <int> linkedList)
     cout << " -> end\n"; 
 } 
 
-void reverseList(list <int> linkedList){
-    auto current = linkedList.front();
-    auto temp = NULL ;
-    auto previous = NULL ;
-
-    cout << current ;
-
-
-}
-
 int main(int argc, char const *argv[])
 {
   list<int> linkedList ;
@@ -31,7 +21,7 @@ int main(int argc, char const *argv[])
   }
   cout << "\nOriginal Linked List \n\n" ;
   showlist(linkedList);
-  reverseList (linkedList);
+  linkedList.reverse();
   cout << "\nNew Linked list\n\n" ;
   showlist(linkedList);
   cout << endl ;
