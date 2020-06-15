@@ -51,13 +51,56 @@ void display() {
    cout << "NULL\n";
 } 
 
+void deleteNode ( int key ) {
+    Node *temp = head , *prev ;
+    
+    // if the Head holds the key 
+    if ( head != NULL && head->data == key ) {
+      head = temp->next ;
+      free(temp) ;
+      return ;
+    }
+
+    // Search for prev node of key
+    while ( temp != NULL && temp->data != key){
+      prev = temp ;
+      temp = temp->next ;
+    }
+
+    // IF key is not present 
+    if (temp->next == NULL ) return ;
+
+    // IF we found the key
+    prev->next = temp->next;
+
+    free(temp);
+}
+
+void deleteNode_pos( int pos ){  
+  Node *temp = head ;
+
+  if (head->next == NULL) {
+    cout << "Empty List" ;
+    return;
+  }
+
+  if ( pos == 1 ){
+    head = temp->next;
+    return ;
+  }
+
+  
+}
+
 int main(int argc, char const *argv[])
 {
-  //cout << head->data << '\n';
+  
   pushBack(1);
   pushBack(2);
   pushBack(3);
-  cout << head->data << '\n';
+  pushBack(4);
+  display();
+  deleteNode(2);
   display();
   return 0;
 }
