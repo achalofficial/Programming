@@ -21,39 +21,60 @@ void displayNode() {
 }
 
 // append
-void appendNode ( int data){
-
-  // make new node 
+void appendNode ( int data ){
+  
+  // Make new Node 
   Node *new_node = new Node();
   new_node->data = data ;
   new_node->next = NULL ;
 
-  // For the initial element
-  if ( head == NULL){
-    *head = *new_node ;
-    return ;
+  // If the new node is the first node
+  if ( head == NULL ){
+    head = new_node;
+    return ; 
   }
 
-  // finding the last Node
-  Node *last_node = head ;
-  while ( last_node->next != NULL){
-    last_node = last_node->next ;
-  } 
+  // Find the last node 
+  Node *last = head ;
+  
+  while ( last->next != NULL){
+    last = last->next;
+  }
 
-  last_node = new_node ;
+  // last node-> new node->next se replace krna h 
+  last->next = new_node ;
 }
 // find Size 
+int sizeNode (){
+  Node *temp = head ;
+  int count = 0 ;
+
+  while (temp->next != NULL){
+    count++;
+    temp = temp->next ;
+  }
+  return count ;
+}
 // find middle Element
+int middleNode ( int size ){
+    Node *temp = head ;
+    int count = 0 ;
+    while ( count < (size/2)){
+      temp = temp->next;
+      count++;
+    }
+    return temp->data ;
+}
 
 int main(int argc, char const *argv[])
 {
   appendNode(1);
-  displayNode();
   appendNode(2);
   appendNode(3);
   appendNode(4);
   appendNode(5);
-  displayNode();
-
+  //displayNode();
+  int size = sizeNode();
+  cout << middleNode(size);
   return 0;
 }
