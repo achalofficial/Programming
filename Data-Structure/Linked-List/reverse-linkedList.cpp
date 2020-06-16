@@ -10,13 +10,22 @@ class Node {
 
 Node *head = NULL ;
 
+void display() {
+  Node *temp = head ;
+  while (temp->next != NULL){
+    cout << temp->data << "->";
+    temp = temp->next ;
+  }
+}
+
+
 void appendNode (int data){
   // Made  a New Node
   Node *new_node = new Node();
   new_node->data = data ;
   new_node->next = NULL ;
 
- if (head->next == NULL){
+  if (head == NULL){
     head = new_node ;
     return ;
   }
@@ -29,15 +38,10 @@ void appendNode (int data){
   }
 
   last->next = new_node ;
+//  display();
+
 }
 
-void display() {
-  Node *temp = head ;
-  while (temp->next != NULL){
-    cout << temp->data << "->";
-    temp = temp->next ;
-  }
-}
 
 int main(int argc, char const *argv[])
 { 
