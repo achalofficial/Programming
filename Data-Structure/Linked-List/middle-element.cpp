@@ -13,7 +13,7 @@ Node *head = NULL ;
 // Display
 void displayNode() {
   Node *temp = head;
-  while ( temp->next != NULL){
+  while ( temp != NULL){
     cout << temp->data << "->" ;
     temp = temp->next;
   }
